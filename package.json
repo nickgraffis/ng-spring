@@ -1,0 +1,83 @@
+{
+  "name": "ng-spring",
+  "version": "0.0.1",
+  "accesss": "public",
+  "description": "🤹 Spring based animations for Angular Animations.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "require": "./dist/index.cjs",
+        "import": "./dist/index.mjs"
+      },
+      "default": "./dist/index.js"
+    },
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.mjs",
+    "dist/**/*.cjs",
+    "dist/*.d.ts"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "build": "NODE_ENV=production vite build",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build",
+    "moonphase": "ts-node plugin-examples/moonphase.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickgraffis/ng-spring.git"
+  },
+  "keywords": [
+    "angular",
+    "animations",
+    "angular animations",
+    "spring",
+    "physics",
+    "keyframes",
+    "spring physics",
+    "spring keyframes",
+    "spring physics keyframes"
+  ],
+  "author": "Nick Graffis <hi@nickgraffis.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickgraffis/ng-spring/issues"
+  },
+  "homepage": "https://github.com/nickgraffis/ng-spring#readme",
+  "devDependencies": {
+    "@angular/animations": "^14.1.2",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@vitest/ui": "^0.17.1",
+    "@yarnpkg/pnpify": "^4.0.0-rc.11",
+    "esbuild": "^0.14.48",
+    "motion": "^10.13.3",
+    "rollup": "^2.6.1",
+    "rollup-plugin-brotli": "^3.1.0",
+    "rollup-plugin-commonjs": "^9.1.4",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-license": "^2.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.14",
+    "vitepress": "^1.0.0-alpha.4",
+    "vitest": "^0.17.1",
+    "vue": "^3.2.37"
+  }
+}
