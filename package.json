@@ -1,6 +1,6 @@
 {
   "name": "ng-spring",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "accesss": "public",
   "description": "🤹 Spring based animations for Angular Animations.",
   "main": "dist/index.js",
@@ -34,13 +34,7 @@
     "docs:serve": "vitepress serve docs",
     "test": "vitest"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nickgraffis/ng-spring.git"
-  },
+  "repository": "git://github.com/nickgraffis/ng-spring.git",
   "keywords": [
     "angular",
     "animations",
