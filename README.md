@@ -1,47 +1,104 @@
-A set of functions for working with US states.
+# Documentation
+Full docs can be found at [nickgraffis.github.io/ng-spring](nickgraffis.github.io/ng-spring)
 
-## Installation
+# Installation
 
-### Node
 ```bash
-yarn add @nickgraffis/us-states
+yarn add ng-spring
 ```
 
-_or use npm or pnpm_
+Or use `npm` or `pnpm`.
 
-### CDN 
-```html
-<script src="https://unpkg.com/@nickgraffis/us-states@latest/dist/us-states.min.js"></script>
+:::tip No NgModule imports are required.
+You don't need to add any modules, this is a pure fucntions that can be imported and used directly.
+::: 
+
+# Usage
+Useage is extreamly simple, just replace `keyframes` from `@angular/animations` with the default export from `ng-spring`. 
+
+## Basic 
+
+```ts{8-11}
+import springKeyframes from 'ng-spring'
+
+@Component({
+  selector: 'app-hello',
+  animations: [
+    trigger('openClose', [ 
+      transition('open => closed', [
+        animate('500ms', springKeyframes({
+          from: {opacity: 0, transform: 'translateY(-100px)'},
+          to: {opacity: 1, transform: 'translateY(0)'}
+        }))
+      ]),
+    ])
+  ]
+})
+export class HelloComponent {
+  @HostBinding('@openClose')
+  public animate = true
+}
 ```
 
-## Usage
+It works the same in more advanced use cases:
 
-The two main functions are `autocomplete` and `states`. Both take a single argument, `query`, which is a string and both return a state object with the following properties:
-* `name`: The name of the state
-* `abv`: The state's abbreviation
-* `code`: The state's numerical code
+```ts{10-13}
+import springKeyframes from 'ng-spring'
+
+@Component({
+  selector: 'app-hello',
+  animations: [
+    trigger('helloAnimation', [
+      transition(':enter', [
+        query('.hero', [
+          stagger(30, [
+            animate('500ms', springKeyframes({
+              from: {opacity: 0, transform: 'translateY(-100px)'},
+              to: {opacity: 1, transform: 'translateY(0)'}
+            }))
+          ])
+        ])
+      ])
+    ])
+  ]
+})
+export class HelloComponent {
+  @HostBinding('@helloAnimation')
+  public animate = true
+}
+```
+
+## Options
+
+The first option of `springKeyframes` is an object with two properties, `from` and `to`. The `from` property is an object with the properties that you want to animate from, and the `to` property is an object with the properties that you want to animate to.
+
+The second option of `springKeyframes` is the options object.
 
 ```ts
-import { autocomplete, states } from '@nickgraffis/us-states'
-
-// Autocomplete
-autocomplete('mar') // { name: 'Maryland', abv: 'MD', code: '24' }
-// also works
-autocomplete('md') // { name: 'Maryland', abv: 'MD', code: '24' }
-
-// States
-states('MD') // { name: 'Maryland', abv: 'MD', code: '24' }
-// also works
-states('Maryland') // { name: 'Maryland', abv: 'MD', code: '24' }
+interface Options {
+  stiffness: number
+  damping: number
+  precision: number
+  unit: string
+}
 ```
 
-There are also more specific functions for getting the state's name, abbreviation, and numerical code.
+### Stiffness
+**Default: 100**
 
-* `stateNameToAbbreviation`: Takes a state name and returns the abbreviation
-* `stateAbbreviationToName`: Takes a state abbreviation and returns the name
-* `stateAbbreviationToCode`: Takes a state abbreviation and returns the numerical code
-* `stateCodeToName`: Takes a state numerical code and returns the name
-* `stateCodeToAbbreviation`: Takes a state numerical code and returns the abbreviation
-* `stateNameToCode`: Takes a state name and returns the numerical code
+The attraction force of a spring. Higher values create faster, sharper movement.
 
-Each of these returns the state object.
+### Damping
+**Default: 10**
+
+The opposing force of a spring. Higher values reduce the bounciness of the spring.
+
+### Precision
+**Default: 0.001**
+
+The precision of values that are being animated.
+
+### Unit
+**Default: 'px'**
+
+The unit of measurement for the css properties.
