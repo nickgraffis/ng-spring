@@ -1,6 +1,6 @@
 {
   "name": "ng-spring",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "accesss": "public",
   "description": "🤹 Spring based animations for Angular Animations.",
   "main": "dist/index.js",
