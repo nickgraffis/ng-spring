@@ -30,7 +30,7 @@
     "pretest": "npm run build",
     "moonphase": "ts-node plugin-examples/moonphase.ts",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "yarn install && node ./scripts/fixMotion.mjs && vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "test": "vitest"
   },
