@@ -1,6 +1,7 @@
 export default {
   title: 'Headless Calendar Fns',
   description: 'reates a matrix for a headless calendar.',
+  base: '/ng-spring/',
   themeConfig: {
     logo: './logo.svg',
     siteTitle: 'Angular Spring',

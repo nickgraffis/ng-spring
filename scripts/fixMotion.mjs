@@ -1,3 +1,6 @@
+/**
+* Solves this issue: https://github.com/motiondivision/motionone/issues/55 
+*/
 import path from 'path';
 import fs from 'fs';
 import { dirname } from 'path';
