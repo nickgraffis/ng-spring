@@ -1,5 +1,5 @@
 # Documentation
-Full docs can be found at [nickgraffis.github.io/ng-spring](nickgraffis.github.io/ng-spring)
+Full docs can be found at [nickgraffis.github.io/ng-spring](https://nickgraffis.github.io/ng-spring/)
 
 # Installation
 
@@ -8,10 +8,6 @@ yarn add ng-spring
 ```
 
 Or use `npm` or `pnpm`.
-
-:::tip No NgModule imports are required.
-You don't need to add any modules, this is a pure fucntions that can be imported and used directly.
-::: 
 
 # Usage
 Useage is extreamly simple, just replace `keyframes` from `@angular/animations` with the default export from `ng-spring`. 
